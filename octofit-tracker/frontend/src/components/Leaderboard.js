@@ -8,11 +8,9 @@ const Leaderboard = () => {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        const codespaceURL = process.env.REACT_APP_CODESPACE_NAME
-          ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev`
-          : 'http://localhost:8000';
-
-        const endpoint = `${codespaceURL}/api/leaderboard/`;
+        const endpoint = process.env.REACT_APP_CODESPACE_NAME
+          ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/`
+          : 'http://localhost:8000/api/leaderboard/';
         console.log('Fetching Leaderboard from:', endpoint);
 
         const response = await fetch(endpoint);
